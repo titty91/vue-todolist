@@ -4,7 +4,7 @@
 //- predisporre un input per aggiungere un nuovo item alla lista: digitando il tasto invio oppure ciccando su un pulsante, il testo digitato viene aggiunto alla lista
 function init(){
   // costruttore classe
-   new Vue({
+    new Vue({
     'el': '#app',
     'data':{
       list: [

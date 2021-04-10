@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>tobolist</title>
@@ -14,20 +16,21 @@
         <div class="logo">
           <img src="logo.png" height="100px">
         </div>
-        <input type="text" v-model='nuvovaElm' v-on:heyUp.enter="aggiungiElm" heigth="100px">
-        <button type="button" name="button">aggiungi</button>
+        <input type="text" v-model='nuvovaElm' v-on:keyUp.enter="aggiungiElm" heigth="100px">
+        <button @click="aggiungiElmList" type="button" name="button">aggiungi</button>
 
         <div class="listItem">
           <!-- elem lista che ciclano -->
           <ul v-if="list.length > 0">
-            <li v-for="elem in list">{{elem}}{{indice}}
+            <li v-for="(elem,indice) in list">{{elem}}{{indice}}
               <i class="fas fa-times" @click="rimuoviElmList(indice)"></i>
             </li>
           </ul>
+          <h1 v-else> non hai niete da fare</h1>
+
         </div>
       </div>
       <!-- se la condizione non è soddisfatta -->
-      <h1 v-else> non hai niete da fare</h1>
     </div>
     <script src="js/script.js"></script>
   </body>
